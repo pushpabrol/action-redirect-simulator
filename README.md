@@ -31,17 +31,21 @@ Before you can run this project, ensure you have the following prerequisites ins
    Create a `.env` file in the project root directory and configure the necessary environment variables. You can use the `.env.example` file as a template. Make sure to replace the placeholders with the actual values:
 
    ```dotenv
-    APP_SECRET=...
-    ISSUER_BASE_URL=https://<auth0 tenant or custom domain>
+    APP_SECRET=3o05of1SPWD1y3F14jHXjRYe8QpM0ResFZ6n8vY30S10om/whw9MmqWdONoj/BzFcIu7lTUKljrXUlx5UDHr3Q==
+    ISSUER_BASE_URL=https://oidc-tests.auth0.com
     PORT=3539
-    ONFIDO_API_TOKEN=<token>
+    ONFIDO_API_TOKEN=api_sandbox_us.tkK6ChF8g1m.WUmri7OwsOV3uSmsXvum3gGqgisVsKLn
     ONFIDO_REGION=US
     ONFIDO_REFERRER_PATTERN=*://*/*
-    WORKFLOW_ID=<asdadads>
-    COOKIE_SESSION_SECRET=...
+    WORKFLOW_ID=19ca1593-9482-41bb-b58f-e074689a986a
+    COOKIE_SESSION_SECRET=b068215a5fdc0bb7eaa467c6a052adfa943ab382fbe9dd694dae1fe00fd0ef72
     SELF_AUD=onfido
-    OKTA_URL=https://<okta sub domain>.oktapreview.com
+    OKTA_URL=https://iamkrish.oktapreview.com
     DEBUG=true
+    SECURE_COOKIE=false
+    SESSION_DURATION_MINUTES=30
+    IDV_CHECK_INTERVAL=15000
+    IDV_CHECK_TIMES_RUN=18
    ```
 
 4. **Run the Application:**

@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Waiting Page
+  body
+    div.container
+      h1 Waiting to redirect back to Auth0
+      p Redirecting in
+        span#countdown 10
+        |  seconds...
+      form(id='jsonDataForm', action='/redirect-rule/continue', method='POST')
+        div
+          label(for='jsonData') Enter JSON Data:
+          textarea#jsonData(name='jsonData', rows='10', cols='40')
+        button#stopButton(type='submit') Stop Waiting
+
+    script.
+      const countdownElement = document.getElementById('countdown');
+      const jsonDataForm = document.getElementById('jsonDataForm');
+      
+      let countdown = #{waitTime}; // Initial countdown time in seconds
+
+      // Function to update the countdown display
+      function updateCountdown() {
+          countdownElement.textContent = countdown;
+      }
+
+      // Function to start the countdown
+      function startCountdown() {
+          updateCountdown();
+          const countdownInterval = setInterval(() => {
+              countdown--;
+              if (countdown <= 0) {
+                  clearInterval(countdownInterval);
+                  // Submit the form when the countdown reaches zero
+                  jsonDataForm.submit();
+              } else {
+                  updateCountdown();
+              }
+          }, 1000); // Update countdown every 1 second
+      }
+
+      // Start the countdown when the page loads
+      startCountdown();

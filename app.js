@@ -31,9 +31,9 @@ app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "/public")));
 
-import onfido from "./routes/onfido.js";
+import waito from "./routes/waito.js";
 
-app.use("/redirect-rule", onfido);
+app.use("/redirect-rule", waito);
 
 app.use((req, res, next) => {
   next(new Error("Not Found"));
